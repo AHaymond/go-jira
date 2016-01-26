@@ -39,6 +39,6 @@ type User struct {
 	} `json:"groups,omitempty"`
 }
 
-func (user *User) show() {
+func (user *User) Show() {
 	fmt.Sprintf("%+v\n", user)
 }
