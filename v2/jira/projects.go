@@ -68,3 +68,7 @@ func (service *ProjectService) ListVersions(projectIdOrKey string) ([]*Version, 
 
 	return versions, resp, nil
 }
+
+func (project *Project) Show() string {
+	return fmt.Sprintf("%+v\n", *project)
+}
