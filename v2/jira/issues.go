@@ -85,7 +85,7 @@ type Issue struct {
 			Id      string `json:"id,omitempty"`
 		} `json:"priority,omitempty"`
 		Components []*Component `json:"components,omitempty"`
-		ChangeLog  ChangeLog    `json:"changelog,omitempty"`
+		ChangeLog  *ChangeLog   `json:"changelog,omitempty"`
 	} `json:"fields,omitempty"`
 }
 
