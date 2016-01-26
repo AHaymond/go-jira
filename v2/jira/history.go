@@ -6,10 +6,10 @@ import (
 )
 
 type History struct {
-	Id      string  `json:"id,omitempty"`
-	Author  *User   `json:"author,omitempty"`
-	Created string  `json:"created,omitempty"`
-	Items   []*Item `json:"items,omitempty"`
+	Id      string `json:"id,omitempty"`
+	Author  *User  `json:"author,omitempty"`
+	Created string `json:"created,omitempty"`
+	Items   []Item `json:"items,omitempty"`
 }
 
 type Item struct {
@@ -25,7 +25,7 @@ func (history *History) ShowItems() string {
 	var items []string
 	if len(history.Items) > 0 {
 		for _, item := range history.Items {
-			items = append(items, fmt.Sprintf("%+v\n", *item))
+			items = append(items, fmt.Sprintf("%+v\n", item))
 		}
 		return fmt.Sprintf("%v", strings.Join(items[:], "\n"))
 	} else {
