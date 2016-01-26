@@ -17,6 +17,10 @@
 
 package jira
 
+import (
+	"fmt"
+)
+
 type User struct {
 	Self         string      `json:"self,omitempty"`
 	Key          string      `json:"key,omitempty"`
@@ -33,4 +37,8 @@ type User struct {
 			Self string `json:"self,omitempty"`
 		} `json:"items,omitempty"`
 	} `json:"groups,omitempty"`
+}
+
+func (user *User) show() {
+	fmt.Sprintf("%+v\n", user)
 }
