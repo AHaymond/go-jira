@@ -40,5 +40,5 @@ type User struct {
 }
 
 func (user *User) Show() string {
-	return fmt.Sprintf("%+v\n", user)
+	return fmt.Sprintf("%+v\n", *user)
 }
