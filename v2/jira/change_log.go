@@ -42,6 +42,14 @@ func (history *History) ShowItems() string {
 	}
 }
 
+func (histories Histories) Show() string {
+	var hist []string
+	for _, history := range histories {
+		hist = append(hist, fmt.Sprintf("%+v\n", *history))
+	}
+	return fmt.Sprintf("%v", strings.Join(hist[:], "\n"))
+}
+
 // Sorting methods for sorting histories by date DESC
 func (slice Histories) Len() int {
 	return len(slice)
