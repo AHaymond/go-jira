@@ -1,20 +1,3 @@
-/*
-   Copyright (C) 2016 AHaymond
-
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program. If not, see {http://www.gnu.org/licenses/}.
-*/
-
 package jira
 
 import (
@@ -23,11 +6,13 @@ import (
 )
 
 type ChangeLog struct {
-	StartAt    int        `json:"startAt,omitempty"`
-	MaxResults int        `json:"maxResults,omitempty"`
-	Total      int        `json:"total,omitempty"`
-	Histories  []*History `json:"histories,omitempty"`
+	StartAt    int       `json:"startAt,omitempty"`
+	MaxResults int       `json:"maxResults,omitempty"`
+	Total      int       `json:"total,omitempty"`
+	Histories  Histories `json:"histories,omitempty"`
 }
+
+type Histories []*History
 
 type History struct {
 	Id      string  `json:"id,omitempty"`
@@ -55,4 +40,17 @@ func (history *History) ShowItems() string {
 	} else {
 		return ""
 	}
+}
+
+// Sorting methods for sorting histories by date DESC
+func (slice Histories) Len() int {
+	return len(slice)
+}
+
+func (slice Histories) Less(i, j int) bool {
+	return slice[i].Created > slice[j].Created
+}
+
+func (slice Histories) Swap(i, j int) {
+	slice[i], slice[j] = slice[j], slice[i]
 }
