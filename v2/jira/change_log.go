@@ -15,7 +15,7 @@ type ChangeLog struct {
 type Histories []*History
 
 type History struct {
-	Id      string  `json:"id,omitempty"`
+	Id      int     `json:"id,omitempty"`
 	Author  *User   `json:"author,omitempty"`
 	Created string  `json:"created,omitempty"`
 	Items   []*Item `json:"items,omitempty"`
