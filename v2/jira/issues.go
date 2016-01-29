@@ -39,7 +39,7 @@ type IssueList struct {
 
 // Issue represents the issue resource as produces by the REST API.
 type Issue struct {
-	Id     string `json:"id,omitempty"`
+	Id     int    `json:"id,string,omitempty"`
 	Self   string `json:"self,omitempty"`
 	Key    string `json:"key,omitempty"`
 	Fields struct {
@@ -61,7 +61,7 @@ type Issue struct {
 		ExternalIssueURL string           `json:"customfield_10025"`
 		ExternalIssueID  string           `json:"customfield_10026"`
 		IssueType        struct {
-			Id          string `json:"id,omitempty"`
+			Id          int    `json:"id,string,omitempty"`
 			Self        string `json:"self,omitempty"`
 			Name        string `json:"name,omitempty"`
 			Description string `json:"description,omitempty"`
@@ -71,18 +71,18 @@ type Issue struct {
 		Effort struct {
 			Self  string `json:"self,omitempty"`
 			Value string `json:"value,omitempty"`
-			Id    string `json:"id,omitempty"`
+			Id    int    `json:"id,string,omitempty"`
 		} `json:"customfield_10602,omitempty"`
 		Team struct {
 			Self  string `json:"self,omitempty"`
 			Value string `json:"value,omitempty"`
-			Id    string `json:"id,omitempty"`
+			Id    int    `json:"id,string,omitempty"`
 		} `json:"customfield_10604,omitempty"`
 		Priority struct {
 			Self    string `json:"self,omitempty"`
 			IconURL string `json:"iconUrl,omitempty"`
 			Name    string `json:"name,omitempty"`
-			Id      string `json:"id,omitempty"`
+			Id      int    `json:"id,string,omitempty"`
 		} `json:"priority,omitempty"`
 		Components []*Component `json:"components,omitempty"`
 	} `json:"fields,omitempty"`
@@ -91,7 +91,7 @@ type Issue struct {
 
 // IssueStatus represents an issue status, e.g. "Scheduled".
 type IssueStatus struct {
-	Id          string `json:"id,omitempty"`
+	Id          int    `json:"id,string,omitempty"`
 	Self        string `json:"self,omitempty"`
 	Name        string `json:"name,omitempty"`
 	Description string `json:"description,omitempty"`
@@ -100,7 +100,7 @@ type IssueStatus struct {
 
 // IssueResolution represents an issue resolution, e.g. "Cannot Reproduce".
 type IssueResolution struct {
-	Id          string `json:"id,omitempty"`
+	Id          int    `json:"id,string,omitempty"`
 	Self        string `json:"self,omitempty"`
 	Name        string `json:"name,omitempty"`
 	Description string `json:"description,omitempty"`

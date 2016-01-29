@@ -18,7 +18,7 @@
 package jira
 
 type Component struct {
+	Id   int    `json:"id,string,omitempty"`
 	Self string `json:"self,omitempty"`
-	Id   string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 }
