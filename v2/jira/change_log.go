@@ -6,16 +6,16 @@ import (
 )
 
 type ChangeLog struct {
-	StartAt    int       `json:"startAt,omitempty"`
-	MaxResults int       `json:"maxResults,omitempty"`
-	Total      int       `json:"total,omitempty"`
+	StartAt    string    `json:"startAt,omitempty"`
+	MaxResults string    `json:"maxResults,omitempty"`
+	Total      string    `json:"total,omitempty"`
 	Histories  Histories `json:"histories,omitempty"`
 }
 
 type Histories []*History
 
 type History struct {
-	Id      int     `json:"id,omitempty"`
+	Id      string  `json:"id,omitempty"`
 	Author  *User   `json:"author,omitempty"`
 	Created string  `json:"created,omitempty"`
 	Items   []*Item `json:"items,omitempty"`
