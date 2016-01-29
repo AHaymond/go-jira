@@ -6,9 +6,9 @@ import (
 )
 
 type ChangeLog struct {
-	StartAt    string    `json:"startAt,omitempty"`
-	MaxResults string    `json:"maxResults,omitempty"`
-	Total      string    `json:"total,omitempty"`
+	StartAt    int       `json:"startAt,omitempty"`
+	MaxResults int       `json:"maxResults,omitempty"`
+	Total      int       `json:"total,omitempty"`
 	Histories  Histories `json:"histories,omitempty"`
 }
 
