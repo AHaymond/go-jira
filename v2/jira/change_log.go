@@ -12,13 +12,13 @@ type ChangeLog struct {
 	Histories  Histories `json:"histories,omitempty"`
 }
 
-type Histories []*History
+type Histories []History
 
 type History struct {
-	Id      int     `json:"id,string,omitempty"`
-	Author  *User   `json:"author,omitempty"`
-	Created string  `json:"created,omitempty"`
-	Items   []*Item `json:"items,omitempty"`
+	Id      int    `json:"id,string,omitempty"`
+	Author  *User  `json:"author,omitempty"`
+	Created string `json:"created,omitempty"`
+	Items   []Item `json:"items,omitempty"`
 }
 
 type Item struct {
@@ -30,11 +30,11 @@ type Item struct {
 	ToString   string `json:"toString,omitempty"`
 }
 
-func (history *History) ShowItems() string {
+func (history History) ShowItems() string {
 	var items []string
 	if len(history.Items) > 0 {
 		for _, item := range history.Items {
-			items = append(items, fmt.Sprintf("%+v\n", *item))
+			items = append(items, fmt.Sprintf("%+v\n", item))
 		}
 		return fmt.Sprintf("%v", strings.Join(items[:], "\n"))
 	} else {
@@ -45,7 +45,7 @@ func (history *History) ShowItems() string {
 func (histories Histories) Show() string {
 	var hist []string
 	for _, history := range histories {
-		hist = append(hist, fmt.Sprintf("%+v\n", *history))
+		hist = append(hist, fmt.Sprintf("%+v\n", history))
 	}
 	return fmt.Sprintf("%v", strings.Join(hist[:], "\n"))
 }
